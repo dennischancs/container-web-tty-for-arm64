@@ -2,7 +2,8 @@ FROM golang:alpine as builder
 WORKDIR /build
 RUN apk update && apk add --no-cache git && \
     git clone https://github.com/wrfly/container-web-tty.git && \
-    cd container-web-tty && make
+    cd container-web-tty && \
+    make
 
 FROM alpine:edge
 # for arm64
