@@ -7,7 +7,7 @@ RUN apk update && apk add --no-cache git && \
 FROM alpine:edge
 # for arm64
 RUN [ ! -e /etc/nsswitch.conf ] && echo 'hosts: files dns' > /etc/nsswitch.conf
-COPY --from=builder /build/bin/container-web-tty /app/container-web-tty
+COPY --from=builder /build/container-web-tty/bin/container-web-tty /app/container-web-tty
 EXPOSE 8080
 ENTRYPOINT [ "/app/container-web-tty" ]
 # CMD [ "/app/container-web-tty" ]
