@@ -1,6 +1,7 @@
 FROM golang:alpine as builder
 WORKDIR /build
-RUN apk update && apk add --no-cache git && \
+RUN cd /build && \
+    apk update && apk add --no-cache git && \
     git clone https://github.com/wrfly/container-web-tty.git && \
     cd container-web-tty && \
     go build
